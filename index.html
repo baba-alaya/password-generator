@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500&family=Montserrat:wght@100;200;300;400;500;600&family=Poppins:wght@100;200;300;400;500;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="container">
+            <h2>Password Generator</h2>
+            <div class="cases">
+                <div class="case">
+                    <input type="checkbox" value="numbers">
+                    <p>Numbers</p>
+                </div>
+                <div class="case">
+                    <input type="checkbox" value="lowercase">
+                    <p>LowerCase</p>
+                </div>
+                <div class="case">
+                    <input type="checkbox" value="uppercase">
+                    <p>UpperCase</p>
+                </div>
+                <div class="case">
+                    <input type="checkbox" value="symbols">
+                    <p>Symbols(e.g .,$%^&()@)</p>
+                </div>
+                <div class="range">
+                    <p>Set password range </p>
+                    <div>
+                        <p class="input-num">0</p>
+                        <input type="range" min="0" max="9" value="4" step="1" >
+                    </div>
+                </div>
+                <div class="btn">
+                    <button>Generate</button>
+                </div>
+                <div class="pass">
+                    <div class="text">
+                        <p>password</p>
+                        <a href="" class="copy">copy</a>
+                    </div>
+                    <div class="password">
+                        <p class="orgpass"></p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./app.js"></script>
+</body>
+
+</html>
