@@ -60,7 +60,6 @@ form.addEventListener('submit', (e) => {
     let FinalResult = ''
     let ovrKey = Object.keys(ovr)
     let checkedKey = ovrKey.filter(key => ovr[`${key}`].length !== 0)
-    console.log(checkedKey)
     let avg = Math.floor(value / checkedKey.length)
     let mod = value % checkedKey.length
     checkedKey.forEach(key => {
@@ -95,7 +94,7 @@ form.addEventListener('submit', (e) => {
         symbols: []
     }
     value = input.value
-    // console.log(checkedKey)
+    inputNum.textContent = value;
 })
 
 const copyText = function (e) {
