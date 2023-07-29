@@ -48,6 +48,7 @@ checkBoxes.forEach((checkbox, index) => {
                 ovr.symbols = checked ? assets.symbols : [];
                 break
         }
+
         checked ? button.disabled = disabled : button.disabled = !disabled
     })
 })
@@ -56,7 +57,7 @@ button.addEventListener('click', () => {
     let FinalResult = ''
     let ovrKey = Object.keys(ovr)
     let checkedKey = ovrKey.filter(key => ovr[`${key}`].length !== 0)
-    let avg = value < 4 ? value : Math.floor(value / checkedKey.length)
+    let avg = Math.floor(value / checkedKey.length)
     let mod = value % checkedKey.length
     checkedKey.forEach(key => {
         for (let i = 0; i < avg; i++) {
