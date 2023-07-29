@@ -3,6 +3,7 @@ const inputNum = document.querySelector('.input-num');
 
 const checkBoxes = document.querySelectorAll('input[type="checkbox"]');
 const button = document.querySelector('button')
+const form = document.querySelector('form')
 const copy = document.querySelector('.copy')
 const orgpass = document.querySelector('.orgpass')
 
@@ -51,12 +52,15 @@ checkBoxes.forEach((checkbox, index) => {
 
         checked ? button.disabled = disabled : button.disabled = !disabled
     })
+
 })
 
-button.addEventListener('click', () => {
+form.addEventListener('submit', (e) => {
+    e.preventDefault()
     let FinalResult = ''
     let ovrKey = Object.keys(ovr)
     let checkedKey = ovrKey.filter(key => ovr[`${key}`].length !== 0)
+    console.log(checkedKey)
     let avg = Math.floor(value / checkedKey.length)
     let mod = value % checkedKey.length
     checkedKey.forEach(key => {
@@ -81,6 +85,17 @@ button.addEventListener('click', () => {
         }
     }
     orgpass.textContent = FinalResult
+
+    form.reset()
+    button.disabled = !disabled
+     ovr = {
+        numbers: [],
+        lowwerCase: [],
+        upperCase: [],
+        symbols: []
+    }
+    value = input.value
+    // console.log(checkedKey)
 })
 
 const copyText = function (e) {
