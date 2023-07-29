@@ -48,7 +48,6 @@ checkBoxes.forEach((checkbox, index) => {
                 ovr.symbols = checked ? assets.symbols : [];
                 break
         }
-        // console.log(ovr)
         checked ? button.disabled = disabled : button.disabled = !disabled
     })
 })
@@ -59,28 +58,35 @@ button.addEventListener('click', () => {
     let checkedKey = ovrKey.filter(key => ovr[`${key}`].length !== 0)
     let avg = value < 4 ? value : Math.floor(value / checkedKey.length)
     let mod = value % checkedKey.length
-    console.log(avg, mod)
     checkedKey.forEach(key => {
         for (let i = 0; i < avg; i++) {
             const nums = Math.floor(Math.random() * avg)
-            console.log(nums)
             FinalResult += assets[key][nums]
         }
     })
-    console.log(FinalResult)
+    if (mod === 1) {
+        usenum = Math.floor(Math.random() * 3);
+        let extra = checkedKey[usenum ? 1 : 2];;
+        let extraArr = assets[extra];
+        pickone = Math.floor(Math.random() * extraArr.length);
+        FinalResult += extraArr[pickone]
+    } else if (mod > 1) {
+        for (i = 0; i < mod; i++) {
+            const usenums = Math.floor(Math.random() * mod)
+            array = checkedKey[usenums]
+            let extraArr = assets[array];
+            pickone = Math.floor(Math.random() * extraArr.length);
+            FinalResult += extraArr[pickone]
+        }
+    }
     orgpass.textContent = FinalResult
-    console.log(ovr)
 })
-
-
-
 
 const copyText = function (e) {
     e.preventDefault()
     navigator.clipboard.writeText(orgpass.textContent)
     alert('password copied succesfully')
 }
-
 copy.addEventListener('click', copyText)
 
 

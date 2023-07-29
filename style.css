@@ -107,8 +107,9 @@ a {
     border: none;
     padding: 5px 8px;
     border-radius: 6px;
-    border: 1px solid gray ;
-    color: gray;
+    border: 1px solid grey  ;
+    color: white;
+    background-color : transparent;
 }
 
 .pass {
@@ -128,7 +129,7 @@ a {
 .password {
     margin-top: 10px;
     text-align: center;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 600;
     padding-bottom: 20px;
 }
