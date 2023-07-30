@@ -64,7 +64,7 @@ form.addEventListener('submit', (e) => {
     let mod = value % checkedKey.length
     checkedKey.forEach(key => {
         for (let i = 0; i < avg; i++) {
-            const nums = Math.floor(Math.random() * avg)
+            const nums = Math.floor(Math.random() * key.length)
             FinalResult += assets[key][nums]
         }
     })
@@ -86,8 +86,9 @@ form.addEventListener('submit', (e) => {
     orgpass.textContent = FinalResult
 
     form.reset()
+    checkedKey = []
     button.disabled = !disabled
-     ovr = {
+    ovr = {
         numbers: [],
         lowwerCase: [],
         upperCase: [],
@@ -97,10 +98,14 @@ form.addEventListener('submit', (e) => {
     inputNum.textContent = value;
 })
 
-const copyText = function (e) {
-    e.preventDefault()
-    navigator.clipboard.writeText(orgpass.textContent)
-    alert('password copied succesfully')
+const copyText = async function (e) {
+    if (orgpass.textContent.trim() == 0) {
+        alert('please generate a password')
+    } else {
+        e.preventDefault()
+        await navigator.clipboard.writeText(orgpass.textContent)
+        alert('password copied succesfully')
+    }
 }
 copy.addEventListener('click', copyText)
 
